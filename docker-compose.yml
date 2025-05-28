@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  file-cleanup:
+    build: .
+    volumes:
+      - .:/app
+      - ${HOME}:/host
+    working_dir: /host
+    entrypoint: ["file-cleanup"]

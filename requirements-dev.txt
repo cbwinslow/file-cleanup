@@ -1,0 +1,64 @@
+# Development dependencies for file-cleanup-utility
+
+# Core development
+pre-commit>=3.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.1
+pytest-xdist>=3.3.1
+pytest-timeout>=2.1.0
+pytest-randomly>=3.12.0
+pytest-asyncio>=0.21.0
+codecov>=2.1.0
+
+# Code quality
+black>=23.7.0
+isort>=5.12.0
+flake8>=6.1.0
+mypy>=1.5.0
+ruff>=0.0.280
+pylint>=3.0.0a6
+
+# Documentation
+sphinx>=7.0.1
+sphinx-rtd-theme>=1.3.0
+sphinx-autodoc-typehints>=1.24.0
+myst-parser>=2.0.0
+sphinx-copybutton>=0.5.2
+
+# Packaging
+build>=0.10.0
+twine>=4.0.2
+wheel>=0.41.0
+
+# Type stubs
+types-python-dateutil>=2.8.19
+types-requests>=2.31.0
+
+# Other tools
+ipython>=8.12.0
+jupyter>=1.0.0
+
+# Security
+safety>=2.3.5
+bandit>=1.7.5
+
+# Formatting
+mdformat>=0.7.16
+mdformat-gfm>=0.3.5
+mdformat-toc>=0.4.3
+
+# Linting
+markdownlint-cli>=0.35.0
+yamllint>=1.30.0
+
+# Dependencies for pre-commit hooks
+pre-commit-hooks>=4.4.0
+ruff-pre-commit>=0.0.280
+
+# For development only
+-e .
+
+# Note: For production dependencies, see pyproject.toml

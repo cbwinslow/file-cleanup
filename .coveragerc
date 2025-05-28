@@ -1,0 +1,136 @@
+[run]
+source = file_cleanup
+omit =
+    */__init__.py
+    */tests/*
+    */_version.py
+    */setup.py
+    */conftest.py
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Have to re-enable the standard pragma
+    pragma: no cover
+
+    # Don't complain about missing debug-only code:
+    def __repr__
+    if self\.debug
+    raise NotImplementedError
+    if __name__ == .__main__.:
+    # Don't complain if tests don't hit defensive assertion code:
+    raise AssertionError
+    raise NotImplementedError
+    raise ImportError
+    # Don't complain if non-runnable code isn't run:
+    if 0:
+    if __name__ == .__main__.:
+    # Don't complain about abstract methods
+    @(abc\\.)?abstractmethod
+    # Type checking blocks
+    if TYPE_CHECKING:
+
+ignore_errors = True
+
+[html]
+directory = htmlcov
+# Change the title of the HTML report
+title = File Cleanup Utility Test Coverage
+
+[xml]
+output = coverage.xml
+
+[paths]
+source =
+    src/file_cleanup
+    .tox/*/lib/python*/site-packages/file_cleanup
+    */site-packages/file_cleanup
+    */src/file_cleanup
+
+[report:coverage]
+fail_under = 90
+show_missing = True
+skip_covered = True
+skip_empty = True
+
+[report:term]
+show_missing = True
+skip_covered = True
+skip_empty = True
+
+[report:html]
+directory = htmlcov
+skip_covered = True
+skip_empty = True
+
+[report:xml]
+output = coverage.xml
+
+[report:json]
+output = coverage.json
+
+[report:lcov]
+output = lcov.info
+
+[report:annotate]
+directory = coverage_annotate
+
+[report:json-annotate]
+directory = coverage_annotate_json
+
+[report:cobertura]
+output = coverage.xml
+
+[report:json-pretty]
+output = coverage-pretty.json
+
+[report:custom]
+output = custom.txt
+
+[report:custom-html]
+directory = custom_html
+
+[report:custom-xml]
+output = custom.xml
+
+[report:custom-json]
+output = custom.json
+
+[report:custom-lcov]
+output = lcov-custom.info
+
+[report:custom-annotate]
+directory = custom_annotate
+
+[report:custom-json-annotate]
+directory = custom_annotate_json
+
+[report:custom-cobertura]
+output = custom-cobertura.xml
+
+[report:custom-json-pretty]
+output = custom-pretty.json
+
+[report:custom-html]
+directory = custom_html
+
+[report:custom-xml]
+output = custom.xml
+
+[report:custom-json]
+output = custom.json
+
+[report:custom-lcov]
+output = lcov-custom.info
+
+[report:custom-annotate]
+directory = custom_annotate
+
+[report:custom-json-annotate]
+directory = custom_annotate_json
+
+[report:custom-cobertura]
+output = custom-cobertura.xml
+
+[report:custom-json-pretty]
+output = custom-pretty.json
