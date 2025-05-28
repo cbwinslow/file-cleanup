@@ -4,6 +4,7 @@ import argparse
 import json
 import logging
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 
@@ -12,6 +13,7 @@ from rich.logging import RichHandler
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
 
+from file_cleanup.cli_ml import add_ml_analyze_command, MLFileCleanupCLI
 from file_cleanup.core.analyzer import FileAnalyzer
 from file_cleanup.utils import (
     calculate_hash,
@@ -39,18 +41,22 @@ class FileCleanupCLI:
         self.parser = self._create_parser()
         self.args = None
         self.analyzer = None
+        
+    def _create_analyzer(self, directory: Path) -> FileAnalyzer:
+        """Create and return a FileAnalyzer instance with include/exclude patterns."""
+        return FileAnalyzer(
+            directory,
+            include_patterns=getattr(self.args, 'include', None),
+            exclude_patterns=getattr(self.args, 'exclude', None)
+        )
 
     def _create_parser(self) -> argparse.ArgumentParser:
         """Create command-line argument parser."""
-        parser = argparse.ArgumentParser(
-            description="File Cleanup Utility - Clean and organize your files"
-        )
-        
-        # Global arguments
+        parser = argparse.ArgumentParser(description="File cleanup utility")
         parser.add_argument(
             "--debug", 
-            action="store_true", 
-            help="Enable debug output"
+            action="store_true",
+            help="Enable debug logging"
         )
         parser.add_argument(
             "--log-file",
@@ -60,39 +66,60 @@ class FileCleanupCLI:
         )
         
         # Subcommands
-        subparsers = parser.add_subparsers(dest="command", help="Command to execute")
+        subparsers = parser.add_subparsers(dest="command", required=True)
+        
+        def add_include_exclude_args(subparser):
+            subparser.add_argument(
+                "--include",
+                type=str,
+                nargs='+',
+                help="File patterns to include (e.g., '*.py' '*.txt')",
+            )
+            subparser.add_argument(
+                "--exclude",
+                type=str,
+                nargs='+',
+                help="File patterns to exclude (e.g., '*.tmp' '*.log')",
+            )
         
         # Scan command
-        scan_parser = subparsers.add_parser("scan", help="Scan directory for files")
+        scan_parser = subparsers.add_parser(
+            "scan", 
+            help="Scan directory and show file information"
+        )
         scan_parser.add_argument("directory", help="Directory to scan")
+        add_include_exclude_args(scan_parser)
         scan_parser.add_argument(
-            "--recursive", 
-            action="store_true", 
-            help="Scan directories recursively"
+            "--output", 
+            type=str, 
+            help="Output file (JSON)",
+            default=None
         )
         
         # Analyze command
         analyze_parser = subparsers.add_parser(
             "analyze", 
-            help="Analyze files in directory"
+            help="Analyze files and show potential cleanup opportunities"
         )
         analyze_parser.add_argument("directory", help="Directory to analyze")
+        add_include_exclude_args(analyze_parser)
         analyze_parser.add_argument(
-            "--age-days", 
-            type=int, 
-            default=365,
-            help="Threshold in days for old files (default: 365)"
+            "--min-age-days",
+            type=int,
+            default=30,
+            help="Minimum file age in days to consider (default: 30)",
         )
         analyze_parser.add_argument(
-            "--similarity",
+            "--min-size-mb",
             type=float,
-            default=0.9,
-            help="Similarity threshold (0-1) for finding similar files (default: 0.9)",
+            default=1.0,
+            help="Minimum file size in MB to consider (default: 1.0)",
         )
         
         # Clean command
-        clean_parser = subparsers.add_parser("clean", help="Clean files")
+        clean_parser = subparsers.add_parser("clean", help="Clean up files")
         clean_parser.add_argument("directory", help="Directory to clean")
+        add_include_exclude_args(clean_parser)
         clean_parser.add_argument(
             "--dry-run",
             action="store_true",
@@ -101,13 +128,19 @@ class FileCleanupCLI:
         clean_parser.add_argument(
             "--confirm",
             action="store_true",
-            help="Ask for confirmation before deleting each file",
+            help="Skip confirmation prompt",
         )
         clean_parser.add_argument(
-            "--age-days",
+            "--min-age-days",
             type=int,
-            default=365,
-            help="Delete files older than this many days (default: 365)",
+            default=30,
+            help="Minimum file age in days to delete (default: 30)",
+        )
+        clean_parser.add_argument(
+            "--min-size-mb",
+            type=float,
+            default=1.0,
+            help="Minimum file size in MB to delete (default: 1.0)",
         )
         
         # Duplicates command
@@ -116,6 +149,7 @@ class FileCleanupCLI:
             help="Find duplicate files"
         )
         dup_parser.add_argument("directory", help="Directory to search for duplicates")
+        add_include_exclude_args(dup_parser)
         dup_parser.add_argument(
             "--algorithm",
             default="sha256",
@@ -123,9 +157,13 @@ class FileCleanupCLI:
             help="Hash algorithm to use (default: sha256)",
         )
         
+        # ML Analyze command
+        add_ml_analyze_command(subparsers)
+        
         # Report command
         report_parser = subparsers.add_parser("report", help="Generate reports")
         report_parser.add_argument("directory", help="Directory to generate report for")
+        add_include_exclude_args(report_parser)
         report_parser.add_argument(
             "--output",
             default="report.json",
@@ -145,27 +183,36 @@ class FileCleanupCLI:
         self.args = self.parser.parse_args(args)
         
         # Set up logging
-        log_level = logging.DEBUG if self.args.debug else logging.INFO
-        logger.setLevel(log_level)
-        
-        # Add file handler if log file is specified
-        if hasattr(self.args, 'log_file'):
-            file_handler = logging.FileHandler(self.args.log_file)
-            file_handler.setFormatter(
-                logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-            )
-            logger.addHandler(file_handler)
+        log_level = logging.DEBUG if getattr(self.args, 'debug', False) else logging.INFO
+        logging.basicConfig(
+            level=log_level,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.StreamHandler(),
+                logging.FileHandler(getattr(self.args, 'log_file', 'file_cleanup.log'))
+            ]
+        )
         
         # Execute command
-        if not self.args.command:
-            self.parser.print_help()
-            return 1
-            
         try:
-            command_method = getattr(self, f"cmd_{self.args.command}")
-            return command_method()
+            command = self.args.command.replace('-', '_')
+            
+            # Special handling for ML analyze command
+            if command == 'ml_analyze':
+                ml_cli = MLFileCleanupCLI(self.args)
+                return ml_cli.cmd_ml_analyze()
+                
+            handler = getattr(self, f'cmd_{command}', None)
+            if not handler:
+                logger.error(f"Unknown command: {self.args.command}")
+                return 1
+                
+            return handler()
+            
         except Exception as e:
-            logger.error(f"Error: {str(e)}", exc_info=self.args.debug)
+            logger.error(f"Error: {str(e)}")
+            if getattr(self.args, 'debug', False):
+                logger.exception("Detailed error:")
             return 1
 
     def cmd_scan(self) -> int:
@@ -183,7 +230,7 @@ class FileCleanupCLI:
             transient=True,
         ) as progress:
             progress.add_task(description="Scanning...", total=None)
-            self.analyzer = FileAnalyzer(directory)
+            self.analyzer = self._create_analyzer(directory)
             self.analyzer.scan_directory()
         
         total_size, file_count = get_directory_size(directory)
@@ -349,23 +396,7 @@ class FileCleanupCLI:
             
         console.print(f"[bold]Finding duplicates in:[/bold] {directory}")
         
-        with Progress(
-            SpinnerColumn(),
-            TextColumn("[progress.description]{task.description}"),
-            transient=True,
-        ) as progress:
-            progress.add_task(description="Searching for duplicates...", total=None)
-            self.analyzer = FileAnalyzer(directory)
-            self.analyzer.scan_directory()
-            self.analyzer.find_duplicates()
-        
-        if not self.analyzer.duplicates:
-            console.print("[green]No duplicate files found![/green]")
-            return 0
-            
-        # Display duplicates
         table = Table(title="Duplicate Files")
-        table.add_column("Hash", style="cyan")
         table.add_column("Files", style="green")
         table.add_column("Size", style="yellow")
         
@@ -410,7 +441,7 @@ class FileCleanupCLI:
             transient=True,
         ) as progress:
             progress.add_task(description="Generating report...", total=None)
-            self.analyzer = FileAnalyzer(directory)
+            self.analyzer = self._create_analyzer(directory)
             self.analyzer.scan_directory()
             self.analyzer.find_orphans()
             self.analyzer.analyze_age()
@@ -490,6 +521,7 @@ class FileCleanupCLI:
 
 def main() -> int:
     """Main entry point for the CLI."""
+    cli = None
     try:
         cli = FileCleanupCLI()
         return cli.run()
@@ -498,7 +530,7 @@ def main() -> int:
         return 1
     except Exception as e:
         console.print(f"[red]Error:[/red] {str(e)}")
-        if cli and cli.args and cli.args.debug:
+        if cli and hasattr(cli, 'args') and getattr(cli.args, 'debug', False):
             import traceback
             traceback.print_exc()
         return 1

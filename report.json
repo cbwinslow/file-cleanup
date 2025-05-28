@@ -1,0 +1,727 @@
+{
+  "directory": "/home/cbwinslow/CascadeProjects/file_cleanup",
+  "scan_time": "2025-05-28T07:52:15.054366",
+  "analysis": {
+    "total_files": 115,
+    "duplicate_files": 6,
+    "orphan_files": 0,
+    "old_files": 0,
+    "unused_files": 0,
+    "deprecated_files": 0,
+    "similar_file_groups": 3
+  },
+  "files": [
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/requirements.txt",
+      "size": 310,
+      "modified": "2025-05-28T05:24:59.744209",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/README.md",
+      "size": 5616,
+      "modified": "2025-05-28T05:03:17.195429",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/setup.py",
+      "size": 306,
+      "modified": "2025-05-28T07:24:48.728102",
+      "type": "text/x-script.python"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/pyproject.toml",
+      "size": 2594,
+      "modified": "2025-05-28T06:55:06.754008",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/Dockerfile",
+      "size": 636,
+      "modified": "2025-05-28T04:51:35.735302",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/docker-compose.yml",
+      "size": 161,
+      "modified": "2025-05-28T04:51:41.703388",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.dockerignore",
+      "size": 438,
+      "modified": "2025-05-28T04:51:52.727547",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.gitignore",
+      "size": 2846,
+      "modified": "2025-05-28T05:19:45.629683",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.pre-commit-config.yaml",
+      "size": 1780,
+      "modified": "2025-05-28T04:54:17.015633",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/CONTRIBUTING.md",
+      "size": 3831,
+      "modified": "2025-05-28T05:03:57.974018",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/CODE_OF_CONDUCT.md",
+      "size": 5223,
+      "modified": "2025-05-28T05:04:51.763793",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/CHANGELOG.md",
+      "size": 943,
+      "modified": "2025-05-28T05:05:33.148391",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/LICENSE",
+      "size": 1066,
+      "modified": "2025-05-28T05:06:03.315826",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/pytest.ini",
+      "size": 703,
+      "modified": "2025-05-28T05:16:49.425144",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/test_main.py",
+      "size": 274,
+      "modified": "2025-05-28T05:17:59.778157",
+      "type": "text/x-script.python"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/setup.cfg",
+      "size": 2864,
+      "modified": "2025-05-28T06:53:40.254738",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/requirements-dev.txt",
+      "size": 992,
+      "modified": "2025-05-28T05:24:46.482018",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/Makefile",
+      "size": 7318,
+      "modified": "2025-05-28T05:26:10.072222",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/MANIFEST.in",
+      "size": 328,
+      "modified": "2025-05-28T06:53:13.089339",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.coveragerc",
+      "size": 2479,
+      "modified": "2025-05-28T05:33:29.801610",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup.log",
+      "size": 4500,
+      "modified": "2025-05-28T07:52:14.875272",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.github/workflows/ci.yml",
+      "size": 1995,
+      "modified": "2025-05-28T04:55:06.780352",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.github/workflows/release.yml",
+      "size": 985,
+      "modified": "2025-05-28T04:55:19.354534",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/tests/__init__.py",
+      "size": 43,
+      "modified": "2025-05-28T05:17:49.252006",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/tests/conftest.py",
+      "size": 1526,
+      "modified": "2025-05-28T05:07:02.775684",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/tests/test_core.py",
+      "size": 5395,
+      "modified": "2025-05-28T05:07:49.693360",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/tests/test_utils.py",
+      "size": 6443,
+      "modified": "2025-05-28T05:08:47.624196",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/tests/test_cli.py",
+      "size": 9148,
+      "modified": "2025-05-28T05:16:27.136822",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/tests/test_main.py",
+      "size": 2203,
+      "modified": "2025-05-28T05:17:10.908453",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/description",
+      "size": 73,
+      "modified": "2025-05-28T05:42:35.240653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/HEAD",
+      "size": 23,
+      "modified": "2025-05-28T05:42:35.241653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/config",
+      "size": 386,
+      "modified": "2025-05-28T06:05:51.765630",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/index",
+      "size": 3000,
+      "modified": "2025-05-28T05:42:49.707867",
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/COMMIT_EDITMSG",
+      "size": 37,
+      "modified": "2025-05-28T05:42:49.707867",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/FETCH_HEAD",
+      "size": 103,
+      "modified": "2025-05-28T07:51:23.173524",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/applypatch-msg.sample",
+      "size": 482,
+      "modified": "2025-05-28T05:42:35.238653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/commit-msg.sample",
+      "size": 900,
+      "modified": "2025-05-28T05:42:35.238653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/post-update.sample",
+      "size": 193,
+      "modified": "2025-05-28T05:42:35.238653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/pre-applypatch.sample",
+      "size": 428,
+      "modified": "2025-05-28T05:42:35.238653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/pre-commit.sample",
+      "size": 1653,
+      "modified": "2025-05-28T05:42:35.238653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/pre-merge-commit.sample",
+      "size": 420,
+      "modified": "2025-05-28T05:42:35.238653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/pre-push.sample",
+      "size": 1378,
+      "modified": "2025-05-28T05:42:35.239653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/pre-receive.sample",
+      "size": 548,
+      "modified": "2025-05-28T05:42:35.239653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/push-to-checkout.sample",
+      "size": 2787,
+      "modified": "2025-05-28T05:42:35.239653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/sendemail-validate.sample",
+      "size": 2312,
+      "modified": "2025-05-28T05:42:35.239653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/update.sample",
+      "size": 3654,
+      "modified": "2025-05-28T05:42:35.239653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/fsmonitor-watchman.sample",
+      "size": 4726,
+      "modified": "2025-05-28T05:42:35.239653",
+      "type": "text/x-perl"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/pre-rebase.sample",
+      "size": 4902,
+      "modified": "2025-05-28T05:42:35.240653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/hooks/prepare-commit-msg.sample",
+      "size": 1496,
+      "modified": "2025-05-28T05:42:35.240653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/info/exclude",
+      "size": 240,
+      "modified": "2025-05-28T05:42:35.240653",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/refs/heads/master",
+      "size": 41,
+      "modified": "2025-05-28T05:42:49.708867",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/refs/remotes/origin/master",
+      "size": 41,
+      "modified": "2025-05-28T06:03:13.579262",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/refs/remotes/github/master",
+      "size": 41,
+      "modified": "2025-05-28T06:05:51.766630",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/a7/1e717ac6203b31c3e38060dd23f63b1fc729a6",
+      "size": 794,
+      "modified": "2025-05-28T05:42:46.257816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/a7/9e80f753fc550b7f2c132593def3479dc997c7",
+      "size": 2356,
+      "modified": "2025-05-28T05:42:46.264816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/7a/b144025c8498536056529a65f85b54bebdd802",
+      "size": 303,
+      "modified": "2025-05-28T05:42:46.257816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/f5/fe7603fc24a8419d079d66a1f23de854bde065",
+      "size": 739,
+      "modified": "2025-05-28T05:42:46.257816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/7d/7f4255e05ef9582a62acbc6f5aa4a6d7d02489",
+      "size": 515,
+      "modified": "2025-05-28T05:42:46.257816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/74/efbbeff2d526b355d8325b777cac619b503da2",
+      "size": 1506,
+      "modified": "2025-05-28T05:42:46.258816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/92/362c9a21d8b9de934eeef855ee7ff960fca0d6",
+      "size": 703,
+      "modified": "2025-05-28T05:42:46.258816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/bc/1f595ede53e5149b20ce631a5c1021a43f9ba4",
+      "size": 513,
+      "modified": "2025-05-28T05:42:46.258816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/ad/ae81061645bea152f3ece3732d741731307669",
+      "size": 2254,
+      "modified": "2025-05-28T05:42:46.258816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/05/954196fe83ed36dd17dc8b4f017af1844cc262",
+      "size": 1795,
+      "modified": "2025-05-28T05:42:46.259816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/63/5cb3ad107f7484636f5fe42f94a76550a71b93",
+      "size": 424,
+      "modified": "2025-05-28T05:42:46.259816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/bb/683059e5fd20aa378805ef602a9f2b3e26cdc9",
+      "size": 652,
+      "modified": "2025-05-28T05:42:46.259816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/4e/654e863331f36c1b3f4a3a26aed6411ab69ca3",
+      "size": 647,
+      "modified": "2025-05-28T05:42:46.260816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/58/8d784bb0e425709848de22ecc23627fa6903ef",
+      "size": 1774,
+      "modified": "2025-05-28T05:42:46.260816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/83/30e24caa9c2049975e9919dfc61987c7f1f4b2",
+      "size": 2409,
+      "modified": "2025-05-28T05:42:46.260816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/86/333201a237476ecf7c2ad77e3c1578ef29dc4c",
+      "size": 139,
+      "modified": "2025-05-28T05:42:46.260816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/e9/b7ec3256106aaefd409701f0e22c0149922882",
+      "size": 1733,
+      "modified": "2025-05-28T05:42:46.261816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/6f/fd1d5faee67576c5b2136458860e3350984377",
+      "size": 351,
+      "modified": "2025-05-28T05:42:46.261816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/ca/204034b98abd88d57b5b7486d3f4afb80359dc",
+      "size": 561,
+      "modified": "2025-05-28T05:42:46.261816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/42/f70576791310caa29e86306b0a382f7043a9eb",
+      "size": 227,
+      "modified": "2025-05-28T05:42:46.261816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/9b/e94141bffbeb537cbc223c420729a97eddabec",
+      "size": 952,
+      "modified": "2025-05-28T05:42:46.262816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/68/f1516d7d13ed0d051d575e8138b28e99fe9a47",
+      "size": 1665,
+      "modified": "2025-05-28T05:42:46.262816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/25/a80586f0583271c47a039364efa0aaeb81a8b1",
+      "size": 168,
+      "modified": "2025-05-28T05:42:46.262816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/ff/3503024d3b3fcc1cb833231c0b93837ae0b68a",
+      "size": 2225,
+      "modified": "2025-05-28T05:42:46.262816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/13/1a5936f47871397f67e37c3d0e8547e54fdf8c",
+      "size": 4633,
+      "modified": "2025-05-28T05:42:46.263816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/9e/1f68b469c6d4c75dd2d5022ac2d3ac78d73138",
+      "size": 3268,
+      "modified": "2025-05-28T05:42:46.263816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/43/fb580387b3cc8382122e66b8a3598ca78f96b5",
+      "size": 1921,
+      "modified": "2025-05-28T05:42:46.264816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/f3/94703923ce9a9f211ff4c18723566bbe1b0458",
+      "size": 211,
+      "modified": "2025-05-28T05:42:46.264816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/f3/9a42a43ac98fb6d68e9d211db99866a73368a2",
+      "size": 1579,
+      "modified": "2025-05-28T05:42:46.265816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/c6/c9e6b70abee5db17ef97d3e7ea67870474ee6f",
+      "size": 58,
+      "modified": "2025-05-28T05:42:46.264816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/06/19c69fa418666c27971d6aa49e891ec18916c7",
+      "size": 699,
+      "modified": "2025-05-28T05:42:46.264816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/b8/0e07ac6ffa740717c1bce39563d9079c6175f3",
+      "size": 753,
+      "modified": "2025-05-28T05:42:46.265816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/40/0ab27e48ae941fa087e40b59f685f507d53a7d",
+      "size": 1981,
+      "modified": "2025-05-28T05:42:46.265816",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/47/abb0d0bc0491999f679cee1a6f5439f7d9f8c5",
+      "size": 83,
+      "modified": "2025-05-28T05:42:49.706867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/a0/915a7a713343e96590ce31bac9b395e06ced86",
+      "size": 52,
+      "modified": "2025-05-28T05:42:49.706867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/2d/f267d075cf14234c52568efd989815a8828edd",
+      "size": 56,
+      "modified": "2025-05-28T05:42:49.706867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/1f/908a85da2e858bcf69b0b87df8d907a6847c9f",
+      "size": 174,
+      "modified": "2025-05-28T05:42:49.706867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/23/5028d1cfabacb458b0fc235047bab9c90d2e7a",
+      "size": 54,
+      "modified": "2025-05-28T05:42:49.706867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/71/c36a160267a9e285e3e55e94d90bcf5d3179a6",
+      "size": 209,
+      "modified": "2025-05-28T05:42:49.707867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/61/8edfb8b63fa1d4ba9b630b65097a22907c9210",
+      "size": 785,
+      "modified": "2025-05-28T05:42:49.707867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/objects/e8/179315496713ffc5aa805f5df660cfada7ea72",
+      "size": 148,
+      "modified": "2025-05-28T05:42:49.708867",
+      "type": "application/zlib"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/logs/HEAD",
+      "size": 191,
+      "modified": "2025-05-28T05:42:49.708867",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/logs/refs/heads/master",
+      "size": 191,
+      "modified": "2025-05-28T05:42:49.708867",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/logs/refs/remotes/origin/master",
+      "size": 151,
+      "modified": "2025-05-28T06:03:13.579262",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/.git/logs/refs/remotes/github/master",
+      "size": 151,
+      "modified": "2025-05-28T06:05:51.766630",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/cli.py",
+      "size": 18102,
+      "modified": "2025-05-28T07:52:07.004158",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/__init__.py",
+      "size": 217,
+      "modified": "2025-05-28T07:49:41.383051",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/__main__.py",
+      "size": 6957,
+      "modified": "2025-05-28T04:40:44.358888",
+      "type": "text/x-script.python"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/utils.py",
+      "size": 5575,
+      "modified": "2025-05-28T04:59:28.230126",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/core/analyzer.py",
+      "size": 11508,
+      "modified": "2025-05-28T07:51:19.832475",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/core/__pycache__/analyzer.cpython-39.pyc",
+      "size": 9757,
+      "modified": "2025-05-28T07:51:48.117885",
+      "type": "application/x-bytecode.python"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/__pycache__/__init__.cpython-39.pyc",
+      "size": 402,
+      "modified": "2025-05-28T07:49:46.008118",
+      "type": "application/x-bytecode.python"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/__pycache__/cli.cpython-39.pyc",
+      "size": 12840,
+      "modified": "2025-05-28T07:52:14.840271",
+      "type": "application/x-bytecode.python"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup/__pycache__/utils.cpython-39.pyc",
+      "size": 5327,
+      "modified": "2025-05-28T07:49:48.033147",
+      "type": "application/x-bytecode.python"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup_utility.egg-info/PKG-INFO",
+      "size": 6904,
+      "modified": "2025-05-28T07:49:09.335587",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup_utility.egg-info/dependency_links.txt",
+      "size": 1,
+      "modified": "2025-05-28T07:49:09.335587",
+      "type": "application/octet-stream"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup_utility.egg-info/entry_points.txt",
+      "size": 55,
+      "modified": "2025-05-28T07:49:09.336587",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup_utility.egg-info/requires.txt",
+      "size": 229,
+      "modified": "2025-05-28T07:49:09.337587",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup_utility.egg-info/top_level.txt",
+      "size": 13,
+      "modified": "2025-05-28T07:49:09.338587",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/file_cleanup_utility.egg-info/SOURCES.txt",
+      "size": 544,
+      "modified": "2025-05-28T07:49:09.348587",
+      "type": "text/plain"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/dist/file_cleanup_utility-0.1.0.tar.gz",
+      "size": 23277,
+      "modified": "2025-05-28T07:25:02.158298",
+      "type": "application/gzip"
+    },
+    {
+      "path": "/home/cbwinslow/CascadeProjects/file_cleanup/dist/file_cleanup_utility-0.1.0-py3-none-any.whl",
+      "size": 16406,
+      "modified": "2025-05-28T07:25:04.773337",
+      "type": "application/zip"
+    }
+  ],
+  "duplicates": [
+    {
+      "hash": "5285f6df66220e1d78577028b67ed1fc16debdbba4b0025680064652fd6d53f1",
+      "files": [
+        "/home/cbwinslow/CascadeProjects/file_cleanup/.git/refs/remotes/origin/master",
+        "/home/cbwinslow/CascadeProjects/file_cleanup/.git/refs/heads/master",
+        "/home/cbwinslow/CascadeProjects/file_cleanup/.git/refs/remotes/github/master",
+        "/home/cbwinslow/CascadeProjects/file_cleanup/.git/refs/heads/master"
+      ],
+      "size": 4
+    },
+    {
+      "hash": "525a8ef6ba0daf062057294452eda644a18860a83bf38680ecc9bede78f1b747",
+      "files": [
+        "/home/cbwinslow/CascadeProjects/file_cleanup/.git/logs/refs/heads/master",
+        "/home/cbwinslow/CascadeProjects/file_cleanup/.git/logs/HEAD"
+      ],
+      "size": 2
+    }
+  ],
+  "orphans": [],
+  "old_files": []
+}

@@ -1,98 +1,18 @@
 # Include the README file
 include README.md
 
-# Include the license file
 include LICENSE
+include README.md
+include requirements.txt
 
-# Include the CHANGELOG
-include CHANGELOG.md
+# Include Python source files
+recursive-include file_cleanup *.py
 
-# Include the requirements files
-include requirements*.txt
-
-# Include package data
-recursive-include src/file_cleanup *.pyi
-recursive-include src/file_cleanup/py.typed
-
-# Include documentation files
-recursive-include docs *
-
-# Include test files
-recursive-include tests *.py
-recursive-include tests *.json
-recursive-include tests *.yaml
-recursive-include tests *.md
-
-# Include example files
-recursive-include examples *
-
-# Include configuration files
-include *.ini
-include *.cfg
-include *.toml
-include .pre-commit-config.yaml
-include .flake8
-include .coveragerc
-include .gitignore
-include .dockerignore
-
-# Exclude build and cache directories
+# Basic exclusions
 global-exclude __pycache__
 global-exclude *.py[cod]
-prune build
-prune dist
-prune .eggs
-prune .pytest_cache
-prune .mypy_cache
-prune .ruff_cache
-prune .tox
-prune .venv
-prune venv
-
-# Exclude version control directories
-recursive-exclude .git *
-recursive-exclude .github *
-
-# Exclude IDE specific files
-recursive-exclude .vscode *
-recursive-exclude .idea *
-
-# Exclude OS generated files
-global-exclude .DS_Store
-global-exclude .DS_Store?
-global-exclude ._*
-global-exclude .Spotlight-V100
-global-exclude .Trashes
-global-exclude ehthumbs.db
-global-exclude Thumbs.db
-
-# Exclude environment files
-global-exclude .env
-
-# Exclude coverage data
-global-exclude .coverage
-
-# Exclude virtual environment
-global-exclude venv/*
-global-exclude env/*
-global-exclude .venv/*
-
-# Exclude distribution files
-global-exclude *.egg-info/*
-
-# Exclude test artifacts
-global-exclude .pytest_cache/*
-
-# Exclude mypy cache
-global-exclude .mypy_cache/*
-
-# Exclude ruff cache
-global-exclude .ruff_cache/*
-
-# Exclude coverage reports
-global-exclude htmlcov/*
 global-exclude .coverage.*
 
 # Exclude build artifacts
-global-exclude build/*
-global-exclude dist/*
+exclude build/*
+exclude dist/*

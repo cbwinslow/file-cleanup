@@ -4,7 +4,7 @@ File Cleanup Utility - A powerful tool for analyzing and cleaning up your file s
 
 __version__ = "0.1.0"
 
-from .file_analyzer import FileAnalyzer
+from .core.analyzer import FileAnalyzer
 from .cli import main
 
 __all__ = ['FileAnalyzer', 'main']

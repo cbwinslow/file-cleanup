@@ -23,9 +23,23 @@ logger = logging.getLogger(__name__)
 class FileAnalyzer:
     """Advanced file system analyzer with multiple detection algorithms."""
 
-    def __init__(self, root_path: Union[str, Path]):
-        """Initialize the file analyzer with root directory path."""
+    def __init__(
+        self, 
+        root_path: Union[str, Path],
+        include_patterns: Optional[List[str]] = None,
+        exclude_patterns: Optional[List[str]] = None
+    ):
+        """Initialize the file analyzer with root directory path and patterns.
+        
+        Args:
+            root_path: Root directory to analyze
+            include_patterns: List of glob patterns to include (e.g., ['*.py', '*.txt'])
+            exclude_patterns: List of glob patterns to exclude (e.g., ['*.tmp', '*.log'])
+        """
         self.root_path = Path(root_path).resolve()
+        self.include_patterns = include_patterns or ['**/*']  # Default to include all files
+        self.exclude_patterns = exclude_patterns or []
+        
         self.files: List[Dict] = []
         self.file_hashes: Dict[str, str] = {}
         self.file_metadata: Dict[str, Dict] = {}
@@ -37,24 +51,70 @@ class FileAnalyzer:
         self.similar_files: Dict[str, List[Dict]] = defaultdict(list)
         self.mime = magic.Magic(mime=True)
 
+    def _should_include_file(self, file_path: Path) -> bool:
+        """Check if a file should be included based on include/exclude patterns."""
+        # Convert to relative path for pattern matching
+        try:
+            rel_path = file_path.relative_to(self.root_path)
+        except ValueError:
+            # File is outside the root directory
+            return False
+            
+        # Check against exclude patterns first
+        for pattern in self.exclude_patterns:
+            if rel_path.match(pattern) or any(parent.match(pattern) for parent in rel_path.parents):
+                return False
+                
+        # Check against include patterns
+        for pattern in self.include_patterns:
+            if rel_path.match(pattern) or any(parent.match(pattern) for parent in rel_path.parents):
+                return True
+                
+        # If no include patterns were provided, include everything not excluded
+        return not bool(self.include_patterns)
+        
     def scan_directory(self, path: Optional[Path] = None) -> None:
-        """Scan directory recursively and collect file information with progress tracking."""
+        """Scan directory recursively and collect file information with progress tracking.
+        
+        Args:
+            path: Optional path to scan (defaults to root_path)
+        """
         path = path or self.root_path
         logger.info(f"Starting directory scan: {path}")
         
-        # First, count all files for progress tracking
-        total_files = sum(1 for _ in path.rglob('*') if _.is_file())
+        # Get all files first, respecting include/exclude patterns
+        all_files = []
+        for pattern in self.include_patterns:
+            try:
+                matched_files = list(path.rglob(pattern))
+                all_files.extend(f for f in matched_files if f.is_file())
+            except Exception as e:
+                logger.warning(f"Error processing pattern '{pattern}': {str(e)}")
         
-        with Progress() as progress:
-            task = progress.add_task("Scanning files...", total=total_files)
+        # Remove duplicates while preserving order
+        seen = set()
+        all_files = [f for f in all_files if not (f in seen or seen.add(f))]
+        
+        # Apply exclude patterns
+        if self.exclude_patterns:
+            all_files = [f for f in all_files if self._should_include_file(f)]
+        
+        total_files = len(all_files)
+        
+        if total_files == 0:
+            logger.warning(f"No files found in {path} matching the specified patterns")
+            return
             
-            for file_path in path.rglob('*'):
-                if file_path.is_file():
-                    try:
-                        self._process_file(file_path)
-                    except Exception as e:
-                        logger.error(f"Error processing {file_path}: {str(e)}")
-                    progress.advance(task)
+        logger.info(f"Found {total_files} files to process")
+        
+        # Process files without progress bar to avoid conflicts
+        for i, file_path in enumerate(all_files, 1):
+            if i % 100 == 0 or i == total_files:
+                logger.info(f"Processed {i}/{total_files} files...")
+            try:
+                self._process_file(file_path)
+            except Exception as e:
+                logger.error(f"Error processing {file_path}: {str(e)}")
         
         logger.info(f"Completed scanning {len(self.files)} files")
 
@@ -90,6 +150,39 @@ class FileAnalyzer:
                 
         except Exception as e:
             logger.error(f"Error processing {file_path}: {str(e)}")
+
+    def find_duplicates(self) -> None:
+        """Find duplicate files by content hash."""
+        logger.info("Searching for duplicate files...")
+        
+        # Group files by size first (quick check)
+        size_map = {}
+        for file_info in self.files:
+            size = file_info['size']
+            if size not in size_map:
+                size_map[size] = []
+            size_map[size].append(file_info['path'])
+        
+        # Only check files with the same size
+        self.duplicates = {}
+        for size, files in size_map.items():
+            if len(files) < 2:
+                continue
+                
+            # For files with same size, calculate their hashes
+            hash_map = {}
+            for file_path in files:
+                file_hash = self._calculate_hash(Path(file_path))
+                if file_hash not in hash_map:
+                    hash_map[file_hash] = []
+                hash_map[file_hash].append(file_path)
+            
+            # Add to duplicates if we found any
+            for file_hash, file_paths in hash_map.items():
+                if len(file_paths) > 1:
+                    self.duplicates[file_hash] = file_paths
+        
+        logger.info(f"Found {len(self.duplicates)} sets of duplicate files")
 
     def _calculate_hash(self, file_path: Path, chunk_size: int = 65536) -> str:
         """Calculate SHA-256 hash of file with progress support."""
