@@ -1,6 +1,6 @@
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v6.0.0
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -18,27 +18,27 @@ repos:
     -   id: detect-private-key
     -   id: forbid-new-submodules
 
--   repo: https://github.com/psf/black
-    rev: 23.12.1
+-   repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 26.10.1
     hooks:
     - id: black
       language_version: python3.8
 
 -   repo: https://github.com/pycqa/isort
-    rev: 5.13.2
+    rev: 10.0.0b1
     hooks:
     - id: isort
       name: isort (python)
       args: ["--profile", "black"]
 
 -   repo: https://github.com/pycqa/flake8
-    rev: 7.0.0
+    rev: 7.4.1
     hooks:
     - id: flake8
       additional_dependencies: [flake8-bugbear==24.1.5]
 
 -   repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
+    rev: v2.4.0
     hooks:
     - id: mypy
       additional_dependencies: [types-python-dateutil]
@@ -46,20 +46,20 @@ repos:
       exclude: ^tests/
 
 -   repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.2
+    rev: v0.17.2
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix, --show-fixes]
 
 -   repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.17
+    rev: 1.0.0
     hooks:
     - id: mdformat
       additional_dependencies: [mdformat-gfm, mdformat-toc]
       args: [--wrap=88]
 
 -   repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.35.0
+    rev: v0.50.0
     hooks:
     - id: markdownlint
       args: [--fix]
